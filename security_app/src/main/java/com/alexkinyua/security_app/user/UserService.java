@@ -3,6 +3,7 @@ package com.alexkinyua.security_app.user;
 import com.alexkinyua.security_app.registration.RegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class UserService implements IUserService{
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<User> getAllUsers() {
@@ -25,7 +27,7 @@ public class UserService implements IUserService{
         var user = new User(registration.getFirstName(),
                 registration.getLastName(),
                 registration.getEmail(),
-                registration.getPassword(),
+                passwordEncoder.encode(registration.getPassword()),
                 Arrays.asList(new Role("ROLE_USER")));
 
         return user;
