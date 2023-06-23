@@ -30,7 +30,7 @@ public class UserService implements IUserService{
                 passwordEncoder.encode(registration.getPassword()),
                 Arrays.asList(new Role("ROLE_USER")));
 
-        return user;
+        return userRepository.save(user);
     }
 
     @Override
