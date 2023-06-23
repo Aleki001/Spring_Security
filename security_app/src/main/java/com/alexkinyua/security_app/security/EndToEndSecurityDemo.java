@@ -23,7 +23,11 @@ public class EndToEndSecurityDemo {
                 .csrf((csrf) -> csrf.disable()
                 )
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/registration/**").permitAll()
+                        .requestMatchers(
+                                "/",
+                                "/login",
+                                "/error",
+                                "/registration/**").permitAll()
                         .anyRequest()
                         .authenticated()
                 )

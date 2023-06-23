@@ -10,43 +10,48 @@
 <body>
 <div class="container col-md-offset-3 col-md-8 mt-lg-5">
 
-    <div class="row mt-2">
+    <div class="row mt-4">
         <div th:if="${param.error}" class="col-sm-8">
-            <p class="alert alert-danger">Invalid username or password!! Try again.</p>
+            <p class="alert alert-danger alert-dismissible fade show" role="alert">Invalid username or password</p>
+        </div>
+
+        <div th:if="${param.reset_success}" class="col-sm-8">
+            <p class="alert alert-info alert-dismissible fade show" role="alert">You have successfully reset your password, please log in here.</p>
         </div>
 
         <div th:if="${param.verified}" class="col-sm-8">
-            <p class="alert alert-info">This account has already been verified, please log in here.</p>
+            <p class="alert alert-info alert-dismissible fade show" role="alert">This account has already been verified,  please log in here.</p>
         </div>
-
         <div th:if="${param.valid}" class="col-sm-8">
-            <p class="alert alert-info">Email verified successfully, please log in here.</p>
+            <p class="alert alert-info alert-dismissible">Email verified successfully, please log in here.</p>
         </div>
 
-    <!--        show logout warning when logging out-->
-
+        <!-- show logout warning alert when logged out. -->
         <div th:if="${param.logout}" class="col-sm-8">
             <p class="alert alert-warning">You have been logged out.</p>
         </div>
     </div>
 
-    <form th:action="@{registration/register}" method="post" class="px-4">
+    <form th:action="@{/login}" method="post" class="px-4">
+        <h2>Login</h2>
         <div class="mb-3 row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="text" id="email" class="form-control" name="email" required autofocus="autofocus">
+                <input type="text" id="email" class="form-control" name="email"
+                       required autofocus="autofocus">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="password" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-6">
-                <input type="password" id="password" class="form-control" name="password" required autofocus="autofocus">
+                <input type="password" id="password" class="form-control" name="password"
+                       required autofocus="autofocus">
             </div>
         </div>
 
-        <div>
-            <button type="submit" name="login" id="login" class="btn btn-success">Login</button>
-            <span>Not registered yet? <a href="#" th:href="@{registration/registration-form}">Register</a></span>
+        <div class="mb-3">
+            <button type="submit" name="login" id="login" class="btn btn-success"> Login</button>
+            <span> Not registered yet? <a href="#" th:href="@{/registration/registration-form}">Register.</a> </span>
         </div>
 
     </form>
