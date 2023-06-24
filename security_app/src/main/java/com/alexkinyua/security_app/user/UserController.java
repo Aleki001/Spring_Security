@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-    private IUserService userService;
+    private final IUserService userService;
 
     @GetMapping
     public String getUsers(Model model){
