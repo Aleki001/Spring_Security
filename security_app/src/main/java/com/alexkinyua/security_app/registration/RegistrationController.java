@@ -3,6 +3,7 @@ package com.alexkinyua.security_app.registration;
 import com.alexkinyua.security_app.events.RegistrationCompleteEvent;
 import com.alexkinyua.security_app.events.listener.RegistrationCompleteEventListener;
 import com.alexkinyua.security_app.registration.password.IPasswordResetTokenService;
+import com.alexkinyua.security_app.registration.password.PasswordRequestUtil;
 import com.alexkinyua.security_app.registration.password.PasswordResetTokenService;
 import com.alexkinyua.security_app.registration.token.VerificationToken;
 import com.alexkinyua.security_app.registration.token.VerificationTokenRepository;
@@ -111,4 +112,8 @@ public class RegistrationController {
         }
         return "redirect:/error?not_found";
     }
+
+
+
+
 }

@@ -45,4 +45,15 @@ public class PasswordResetTokenService implements IPasswordResetTokenService{
         PasswordResetToken resetToken = new PasswordResetToken(passwordResetToken, user);
         passwordResetTokenRepository.save(resetToken);
     }
+
+    @Override
+    public void changePassword(User theUser, String newPassword) {
+        theUser.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(theUser);
+    }
+
+    @Override
+    public boolean oldPasswordIsValid(User user, String oldPassword){
+        return passwordEncoder.matches(oldPassword, user.getPassword());
+    }
 }

@@ -12,6 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+/**
+  * @Author: Alex Kinyua
+  */
+
 @Service
 @RequiredArgsConstructor
 public class UserService implements IUserService{

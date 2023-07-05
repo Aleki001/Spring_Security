@@ -19,7 +19,6 @@ public class EndToEndUserDetails implements UserDetails {
     private boolean isEnabled;
     private List<GrantedAuthority> authorities;
 
-
     public EndToEndUserDetails(User user) {
         this.userName = user.getEmail();
         this.password = user.getPassword();

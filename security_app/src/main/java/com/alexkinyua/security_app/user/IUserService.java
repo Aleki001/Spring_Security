@@ -5,6 +5,10 @@ import com.alexkinyua.security_app.registration.RegistrationRequest;
 import java.util.List;
 import java.util.Optional;
 
+/**
+  * @Author: Alex Kinyua
+  */
+
 public interface IUserService {
     List<User> getAllUsers();
     User registerUser(RegistrationRequest registrationRequest);
